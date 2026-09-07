@@ -25,6 +25,12 @@
         "panel": "dedicated",
         "clear": true
       }
+    },
+    {
+      "label": "BPMN: Validate current file",
+      "type": "shell",
+      "command": "npx bpmnlint \"${file}\"",
+      "problemMatcher": []
     }
   ]
 }

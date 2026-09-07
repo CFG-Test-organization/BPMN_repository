@@ -1,3 +1,13 @@
 {
-  "extends": "bpmnlint:recommended"
+  "extends": "bpmnlint:recommended",
+
+  "rules": {
+    "label-required": "error",
+    "start-event-required": "error",
+    "end-event-required": "error",
+    "no-disconnected": "error",
+
+    "no-complex-gateway": "warn",
+    "no-inclusive-gateway": "warn"
+  }
 }

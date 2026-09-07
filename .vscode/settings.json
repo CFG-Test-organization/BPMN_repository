@@ -9,6 +9,11 @@
       "label": "$(git-compare) BPMN: Порівняти",
       "task": "BPMN: Порівняти схеми",
       "tooltip": "Порівняти поточну BPMN-схему з іншою"
+    },
+    {
+      "label": "$(check) BPMN: Validate current file",
+      "task": "BPMN: Validate current file",
+      "tooltip": "Перевірити поточну BPMN-схему"
     }
   ],
 "files.exclude": {

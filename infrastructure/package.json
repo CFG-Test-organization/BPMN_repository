@@ -25,5 +25,10 @@
   },
   "devDependencies": {
     "bpmn-to-image": "^0.10.0"
+  },
+  {
+  "scripts": {
+    "lint": "bpmnlint \"**/*.bpmn\""
   }
+***
 }
