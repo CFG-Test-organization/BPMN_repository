@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="3679504" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <bpmn:collaboration id="Collaboration_032pui2">
+    <bpmn:participant id="Participant_0qgilj7" processRef="Process_1hd0u3t" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1hd0u3t" name="Передача релізу на підтримку" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_0c8juug">
+      <bpmn:lane id="Lane_19faq0h" name="Бізнес аналітик">
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0kk0lgn</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1f1nxc1</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_0z4c3p7" name="Керівник відділу підтримки та тестування">
+        <bpmn:flowNodeRef>Gateway_1ah068q</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0m15kux</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0717ufx</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1" name="Випущено черговий реліз ІТ системи">
+      <bpmn:outgoing>Flow_16vf0jj</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_16vf0jj" sourceRef="StartEvent_1" targetRef="Activity_0kk0lgn" />
+    <bpmn:sequenceFlow id="Flow_03ydqja" sourceRef="Activity_0kk0lgn" targetRef="Activity_0m15kux" />
+    <bpmn:sequenceFlow id="Flow_09rytyf" sourceRef="Activity_0m15kux" targetRef="Gateway_1ah068q" />
+    <bpmn:exclusiveGateway id="Gateway_1ah068q" name="Документація потребує доопрацювання?">
+      <bpmn:incoming>Flow_09rytyf</bpmn:incoming>
+      <bpmn:outgoing>Flow_1r0jf1d</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Activity_0kk0lgn" name="Надіслати документацію для валідації">
+      <bpmn:incoming>Flow_16vf0jj</bpmn:incoming>
+      <bpmn:outgoing>Flow_03ydqja</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:userTask id="Activity_0m15kux" name="Провести аналіз документації">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_03ydqja</bpmn:incoming>
+      <bpmn:outgoing>Flow_09rytyf</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1r0jf1d" sourceRef="Gateway_1ah068q" targetRef="Activity_0717ufx" />
+    <bpmn:sequenceFlow id="Flow_0pz8dyz" sourceRef="Activity_0717ufx" targetRef="Activity_1f1nxc1" />
+    <bpmn:userTask id="Activity_1f1nxc1" name="Виправити зауваження до документації">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0pz8dyz</bpmn:incoming>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_0717ufx" name="Сформувати зауваження">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1r0jf1d</bpmn:incoming>
+      <bpmn:outgoing>Flow_0pz8dyz</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_032pui2">
+      <bpmndi:BPMNShape id="Participant_0qgilj7_di" bpmnElement="Participant_0qgilj7" isHorizontal="true">
+        <dc:Bounds x="20" y="80" width="1380" height="820" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0z4c3p7_di" bpmnElement="Lane_0z4c3p7" isHorizontal="true">
+        <dc:Bounds x="50" y="460" width="1350" height="440" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_19faq0h_di" bpmnElement="Lane_19faq0h" isHorizontal="true">
+        <dc:Bounds x="50" y="80" width="1350" height="380" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="142" y="162" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="123" y="205" width="75" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1ah068q_di" bpmnElement="Gateway_1ah068q" isMarkerVisible="true">
+        <dc:Bounds x="615" y="655" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="596" y="712" width="88" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0d9qczb_di" bpmnElement="Activity_0kk0lgn">
+        <dc:Bounds x="230" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0tvaixr_di" bpmnElement="Activity_0m15kux">
+        <dc:Bounds x="400" y="640" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1akbpm0_di" bpmnElement="Activity_1f1nxc1">
+        <dc:Bounds x="770" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1s7fz9k_di" bpmnElement="Activity_0717ufx">
+        <dc:Bounds x="770" y="510" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_16vf0jj_di" bpmnElement="Flow_16vf0jj">
+        <di:waypoint x="178" y="180" />
+        <di:waypoint x="230" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03ydqja_di" bpmnElement="Flow_03ydqja">
+        <di:waypoint x="330" y="180" />
+        <di:waypoint x="370" y="180" />
+        <di:waypoint x="370" y="680" />
+        <di:waypoint x="400" y="680" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_09rytyf_di" bpmnElement="Flow_09rytyf">
+        <di:waypoint x="500" y="680" />
+        <di:waypoint x="615" y="680" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1r0jf1d_di" bpmnElement="Flow_1r0jf1d">
+        <di:waypoint x="640" y="655" />
+        <di:waypoint x="640" y="550" />
+        <di:waypoint x="770" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0pz8dyz_di" bpmnElement="Flow_0pz8dyz">
+        <di:waypoint x="820" y="510" />
+        <di:waypoint x="820" y="220" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
