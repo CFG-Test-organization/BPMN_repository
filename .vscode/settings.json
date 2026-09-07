@@ -10,5 +10,15 @@
       "task": "BPMN: Порівняти схеми",
       "tooltip": "Порівняти поточну BPMN-схему з іншою"
     }
-  ]
+  ],
+"files.exclude": {
+
+"**/node_modules": true,
+"**/.git": true,
+".gitattributes": true,
+".gitignore": true,
+"**/infrastructure": true
+
+}
+
 }
