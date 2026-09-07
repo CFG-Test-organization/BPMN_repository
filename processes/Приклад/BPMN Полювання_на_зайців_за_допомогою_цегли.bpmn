@@ -55,10 +55,6 @@
       <bpmn:outgoing>Flow_0kqqytb</bpmn:outgoing>
       <bpmn:outgoing>Flow_0obai43</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:task id="Activity_0xtna09" name="Перевірити наявність снігу на землі">
-      <bpmn:incoming>Flow_0op5v3f</bpmn:incoming>
-      <bpmn:outgoing>Flow_02x4ve3</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:startEvent id="StartEvent_1" name="Настала 6 година ранку">
       <bpmn:outgoing>Flow_0op5v3f</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_0gabas1" />
@@ -204,6 +200,10 @@
       <bpmn:incoming>Flow_0i0idi1</bpmn:incoming>
       <bpmn:outgoing>Flow_1ej8cbq</bpmn:outgoing>
     </bpmn:userTask>
+    <bpmn:userTask id="Activity_0xtna09" name="Перевірити наявність снігу на землі">
+      <bpmn:incoming>Flow_0op5v3f</bpmn:incoming>
+      <bpmn:outgoing>Flow_02x4ve3</bpmn:outgoing>
+    </bpmn:userTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_055e1s2">
@@ -220,10 +220,6 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="495" y="222" width="50" height="14" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0xtna09_di" bpmnElement="Activity_0xtna09">
-        <dc:Bounds x="340" y="237" width="100" height="80" />
-        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0rwacya_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="242" y="259" width="36" height="36" />
@@ -369,6 +365,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0itcibq_di" bpmnElement="Activity_0jgt5p4">
         <dc:Bounds x="1140" y="520" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0uwhc3m_di" bpmnElement="Activity_0xtna09">
+        <dc:Bounds x="340" y="237" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_02x4ve3_di" bpmnElement="Flow_02x4ve3">
         <di:waypoint x="440" y="277" />
