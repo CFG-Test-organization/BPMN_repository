@@ -1,0 +1,25 @@
+{
+  "name": "bpmn_repository",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capitoshko/BPMN_repository.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/capitoshko/BPMN_repository/issues"
+  },
+  "homepage": "https://github.com/capitoshko/BPMN_repository#readme",
+  "dependencies": {
+    "bpmn-js-differ": "^3.2.0",
+    "bpmn-moddle": "^10.2.0"
+  }
+}
