@@ -16,8 +16,8 @@
         <bpmn:flowNodeRef>Activity_0717ufx</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_1fgaiud</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1y7gwnq</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_1xeijlv</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_1wgeme0</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1xeijlv</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:startEvent id="StartEvent_1" name="Випущено черговий реліз ІТ системи">
@@ -29,6 +29,7 @@
     <bpmn:exclusiveGateway id="Gateway_1ah068q" name="Документація потребує доопрацювання?">
       <bpmn:incoming>Flow_09rytyf</bpmn:incoming>
       <bpmn:outgoing>Flow_1r0jf1d</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0zz0jko</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sendTask id="Activity_0kk0lgn" name="Надіслати документацію для валідації">
       <bpmn:incoming>Flow_16vf0jj</bpmn:incoming>
@@ -70,15 +71,17 @@
       <bpmn:outgoing>Flow_0ghngja</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_0jyf2px" name="Ні" sourceRef="Gateway_1fgaiud" targetRef="Activity_0717ufx" />
-    <bpmn:task id="Activity_1xeijlv" name="Провести зустріч зпередачі функціоналу">
-      <bpmn:incoming>Flow_1a97dmx</bpmn:incoming>
-      <bpmn:outgoing>Flow_05w4nlq</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_1a97dmx" sourceRef="Gateway_1fgaiud" targetRef="Activity_1xeijlv" />
     <bpmn:endEvent id="Event_1wgeme0" name="Функцінал передано">
       <bpmn:incoming>Flow_05w4nlq</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_05w4nlq" sourceRef="Activity_1xeijlv" targetRef="Event_1wgeme0" />
+    <bpmn:sequenceFlow id="Flow_0zz0jko" name="Ні" sourceRef="Gateway_1ah068q" targetRef="Activity_1xeijlv" />
+    <bpmn:userTask id="Activity_1xeijlv" name="Провести зустріч зпередачі функціоналу">
+      <bpmn:incoming>Flow_1a97dmx</bpmn:incoming>
+      <bpmn:incoming>Flow_0zz0jko</bpmn:incoming>
+      <bpmn:outgoing>Flow_05w4nlq</bpmn:outgoing>
+    </bpmn:userTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_032pui2">
@@ -126,15 +129,14 @@
       <bpmndi:BPMNShape id="Activity_0wep40n_di" bpmnElement="Activity_1y7gwnq">
         <dc:Bounds x="960" y="510" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1xeijlv_di" bpmnElement="Activity_1xeijlv">
-        <dc:Bounds x="1300" y="510" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1wgeme0_di" bpmnElement="Event_1wgeme0">
         <dc:Bounds x="1502" y="532" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1494" y="575" width="53" height="27" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0wchdg8_di" bpmnElement="Activity_1xeijlv">
+        <dc:Bounds x="1300" y="510" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_16vf0jj_di" bpmnElement="Flow_16vf0jj">
         <di:waypoint x="178" y="180" />
@@ -184,6 +186,14 @@
       <bpmndi:BPMNEdge id="Flow_05w4nlq_di" bpmnElement="Flow_05w4nlq">
         <di:waypoint x="1400" y="550" />
         <di:waypoint x="1502" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0zz0jko_di" bpmnElement="Flow_0zz0jko">
+        <di:waypoint x="665" y="680" />
+        <di:waypoint x="1350" y="680" />
+        <di:waypoint x="1350" y="590" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1002" y="662" width="11" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
