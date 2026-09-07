@@ -165,8 +165,9 @@ async function runDiff(oldFilePath, newFilePath) {
         console.log(`\n  • Вузол: ${getElementName(elem, newIndex)} [${formatType(elem.$type)}]`);
 
         for (const [attrName, diffDetails] of Object.entries(attrs)) {
-          const oldVal = diffDetails.oldValue;
-          const newVal = diffDetails.newValue;
+          // bpmn-js-differ 3.x returns these two values in reverse order.
+          const oldVal = diffDetails.newValue;
+          const newVal = diffDetails.oldValue;
 
           if (attrName === 'outgoing') {
             console.log(`      ↳ Топологія: змінено список вихідних потоків управління`);
