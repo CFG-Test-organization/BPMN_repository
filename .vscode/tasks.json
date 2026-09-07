@@ -14,6 +14,17 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "BPMN: Порівняти схеми",
+      "type": "shell",
+      "command": "node ./scripts/diff-main.js \"${file}\"",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
     }
   ]
 }

@@ -1,9 +1,14 @@
 {
-  "vs-taskbuttons.tasks": [
+  "VsCodeTaskButtons.tasks": [
     {
       "label": "$(file-media) BPMN: Експорт в SVG",
       "task": "BPMN: Експорт в SVG",
       "tooltip": "Згенерувати SVG для поточної BPMN-схеми"
+    },
+    {
+      "label": "$(git-compare) BPMN: Порівняти",
+      "task": "BPMN: Порівняти схеми",
+      "tooltip": "Порівняти поточну BPMN-схему з іншою"
     }
   ]
 }
