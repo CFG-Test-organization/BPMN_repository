@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_07lab9h" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_07lab9h" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0">
   <bpmn:collaboration id="Collaboration_055e1s2">
     <bpmn:participant id="Participant_1jsqhpt" name="Полювання на зайців за допомогою цегли" processRef="Process_1ekcn45" />
     <bpmn:participant id="Participant_0jhvqw8" name="Сусід Сергій" />
@@ -146,20 +146,12 @@
       <bpmn:incoming>Flow_1jxlcba</bpmn:incoming>
       <bpmn:outgoing>Flow_0n1x3ih</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:task id="Activity_04cvmuz" name="Позичити червону цеглу у Сергія">
-      <bpmn:incoming>Flow_0ge010a</bpmn:incoming>
-      <bpmn:outgoing>Flow_0o3p9na</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:exclusiveGateway id="Gateway_1awnw2s" name="У сусіда є цегла?">
       <bpmn:incoming>Flow_0ico0dy</bpmn:incoming>
       <bpmn:outgoing>Flow_0czzrar</bpmn:outgoing>
       <bpmn:outgoing>Flow_0ge010a</bpmn:outgoing>
       <bpmn:outgoing>Flow_0i0idi1</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:task id="Activity_1h3b0y8" name="Дізнатися чи є цегла у сусіда Сергія">
-      <bpmn:incoming>Flow_16yo6em</bpmn:incoming>
-      <bpmn:outgoing>Flow_0ico0dy</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:task id="Activity_0iissdc" name="Взяти червону цеглу на задньому подвір&#39;ї">
       <bpmn:incoming>Flow_02oqjdb</bpmn:incoming>
       <bpmn:outgoing>Flow_1sf63s8</bpmn:outgoing>
@@ -189,10 +181,6 @@
       <bpmn:incoming>Flow_0kqqytb</bpmn:incoming>
       <bpmn:outgoing>Flow_191tq9t</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_0jgt5p4" name="Позичити білу цеглу у Сергія">
-      <bpmn:incoming>Flow_0i0idi1</bpmn:incoming>
-      <bpmn:outgoing>Flow_1ej8cbq</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:callActivity id="Activity_076kuwm" name="Купити фарбу червоного кольору у магазині">
       <bpmn:extensionElements>
         <zeebe:calledElement propagateAllChildVariables="false" />
@@ -204,6 +192,18 @@
       <bpmn:incoming>Flow_0dwxqw4</bpmn:incoming>
       <bpmn:outgoing>Flow_1jxlcba</bpmn:outgoing>
     </bpmn:task>
+    <bpmn:userTask id="Activity_1h3b0y8" name="Дізнатися чи є цегла у сусіда Сергія">
+      <bpmn:incoming>Flow_16yo6em</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ico0dy</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_04cvmuz" name="Позичити червону цеглу у Сергія">
+      <bpmn:incoming>Flow_0ge010a</bpmn:incoming>
+      <bpmn:outgoing>Flow_0o3p9na</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_0jgt5p4" name="Позичити білу цеглу у Сергія">
+      <bpmn:incoming>Flow_0i0idi1</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ej8cbq</bpmn:outgoing>
+    </bpmn:userTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_055e1s2">
@@ -315,19 +315,11 @@
       <bpmndi:BPMNShape id="Gateway_1785jcf_di" bpmnElement="Gateway_1785jcf" isMarkerVisible="true">
         <dc:Bounds x="1615" y="405" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_04cvmuz_di" bpmnElement="Activity_04cvmuz">
-        <dc:Bounds x="1300" y="390" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1awnw2s_di" bpmnElement="Gateway_1awnw2s" isMarkerVisible="true">
         <dc:Bounds x="1035" y="405" width="50" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1066" y="393" width="88" height="14" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1h3b0y8_di" bpmnElement="Activity_1h3b0y8">
-        <dc:Bounds x="880" y="390" width="100" height="80" />
-        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0iissdc_di" bpmnElement="Activity_0iissdc">
         <dc:Bounds x="1430" y="237" width="100" height="80" />
@@ -361,10 +353,6 @@
         <dc:Bounds x="620" y="237" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0jgt5p4_di" bpmnElement="Activity_0jgt5p4">
-        <dc:Bounds x="1140" y="520" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1fj0p77_di" bpmnElement="Activity_076kuwm">
         <dc:Bounds x="1300" y="520" width="100" height="80" />
         <bpmndi:BPMNLabel />
@@ -372,6 +360,15 @@
       <bpmndi:BPMNShape id="Activity_167znah_di" bpmnElement="Activity_167znah">
         <dc:Bounds x="1460" y="520" width="100" height="80" />
         <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ictjhs_di" bpmnElement="Activity_1h3b0y8">
+        <dc:Bounds x="880" y="390" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1pvq0rr_di" bpmnElement="Activity_04cvmuz">
+        <dc:Bounds x="1300" y="390" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0itcibq_di" bpmnElement="Activity_0jgt5p4">
+        <dc:Bounds x="1140" y="520" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_02x4ve3_di" bpmnElement="Flow_02x4ve3">
         <di:waypoint x="440" y="277" />
@@ -483,14 +480,14 @@
         <di:waypoint x="1060" y="560" />
         <di:waypoint x="1140" y="560" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1063" y="480" width="74" height="27" />
+          <dc:Bounds x="1063" y="480" width="75" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0ge010a_di" bpmnElement="Flow_0ge010a">
         <di:waypoint x="1085" y="430" />
         <di:waypoint x="1300" y="430" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1203" y="400" width="74" height="27" />
+          <dc:Bounds x="1203" y="400" width="75" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0ico0dy_di" bpmnElement="Flow_0ico0dy">
