@@ -1,0 +1,9 @@
+{
+  "vs-taskbuttons.tasks": [
+    {
+      "label": "$(file-media) BPMN: Експорт в SVG",
+      "task": "BPMN: Експорт в SVG",
+      "tooltip": "Згенерувати SVG для поточної BPMN-схеми"
+    }
+  ]
+}

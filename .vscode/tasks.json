@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "BPMN: Експорт в SVG",
+      "type": "shell",
+      "command": "npx bpmn-to-image \"${file};${fileDirname}/${fileBasenameNoExtension}.svg\"",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent",
+        "close": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
