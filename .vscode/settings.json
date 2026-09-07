@@ -21,6 +21,7 @@
 "**/node_modules": true,
 "**/.git": true,
 ".gitattributes": true,
+".bpmnlintrc": true,
 ".gitignore": true,
 "**/infrastructure": true
 
