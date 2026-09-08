@@ -14,12 +14,7 @@
       "label": "$(check) BPMN: Validate current file",
       "task": "BPMN: Validate current file",
       "tooltip": "Перевірити поточну BPMN-схему"
-    },
-    {
-    "git.branchProtection": [
-        "main",
-        "templates"
-    ]
+    }
 }
 
   ],
