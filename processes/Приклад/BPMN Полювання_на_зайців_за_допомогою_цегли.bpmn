@@ -188,10 +188,6 @@
       <bpmn:incoming>Flow_0i0idi1</bpmn:incoming>
       <bpmn:outgoing>Flow_1ej8cbq</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="Activity_0xtna09" name="Перевірити наявність снігу на землі">
-      <bpmn:incoming>Flow_0op5v3f</bpmn:incoming>
-      <bpmn:outgoing>Flow_02x4ve3</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:userTask id="Activity_0jxborh" name="Перевірити наявність червоної цегли">
       <bpmn:incoming>Flow_0kqqytb</bpmn:incoming>
       <bpmn:outgoing>Flow_191tq9t</bpmn:outgoing>
@@ -204,6 +200,10 @@
       <bpmn:incoming>Flow_0dwxqw4</bpmn:incoming>
       <bpmn:outgoing>Flow_1jxlcba</bpmn:outgoing>
     </bpmn:userTask>
+    <bpmn:sendTask id="Activity_0xtna09" name="Перевірити наявність снігу на землі">
+      <bpmn:incoming>Flow_0op5v3f</bpmn:incoming>
+      <bpmn:outgoing>Flow_02x4ve3</bpmn:outgoing>
+    </bpmn:sendTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_055e1s2">
@@ -354,9 +354,6 @@
       <bpmndi:BPMNShape id="Activity_0itcibq_di" bpmnElement="Activity_0jgt5p4">
         <dc:Bounds x="1140" y="520" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0uwhc3m_di" bpmnElement="Activity_0xtna09">
-        <dc:Bounds x="340" y="237" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0za2i0h_di" bpmnElement="Activity_0jxborh">
         <dc:Bounds x="620" y="237" width="100" height="80" />
       </bpmndi:BPMNShape>
@@ -365,6 +362,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_17jwdxg_di" bpmnElement="Activity_167znah">
         <dc:Bounds x="1460" y="520" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0pfzbyg_di" bpmnElement="Activity_0xtna09">
+        <dc:Bounds x="340" y="237" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_02x4ve3_di" bpmnElement="Flow_02x4ve3">
         <di:waypoint x="440" y="277" />
